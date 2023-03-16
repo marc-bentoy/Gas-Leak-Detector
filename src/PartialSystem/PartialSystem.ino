@@ -136,7 +136,7 @@ void computeGasLevel() {
     computed_gas_weight = (raw_gas_weight - GAS_CONTAINER_WEIGHT) / GAS_FULL_CAPACITY;
 
     if (computed_gas_weight >= HIGH_WEIGHT_THRESHOLD) gas_level = 3;
-    if (computed_gas_weight < HIGH_WEIGHT_THRESHOLD) gas_level = 2;
+    if (computed_gas_weight < HIGH_WEIGHT_THRESHOLD && computed_gas_weight > LOW_WEIGHT_THRESHOLD) gas_level = 2;
     if (computed_gas_weight < MID_WEIGHT_THRESHOLD) gas_level = 1;
 }
 
