@@ -1,4 +1,7 @@
 #include <HX711_ADC.h>
+#if defined(ESP8266)|| defined(ESP32) || defined(AVR)
+#include <EEPROM.h>
+#endif
 
 //pins:
 const int HX711_dout = 2; //mcu > HX711 dout pin
@@ -11,9 +14,7 @@ const int calVal_eepromAdress = 0;
 unsigned long t = 0;
 
 void setup() {
-  Serial.begin(9600); 
-  delay(10);
-
+  Serial.begin(57600); delay(10);
   Serial.println();
   Serial.println("Starting...");
 
@@ -21,7 +22,9 @@ void setup() {
   LoadCell.setReverseOutput(); //uncomment to turn a negative output value to positive
   float calibrationValue; // calibration value (see example file "Calibration.ino")
   calibrationValue = 696.0; // uncomment this if you want to set the calibration value in the sketch
-
+#if defined(ESP8266)|| defined(ESP32)
+  //EEPROM.begin(512); // uncomment this if you use ESP8266/ESP32 and want to fetch the calibration value from eeprom
+#endif
   EEPROM.get(calVal_eepromAdress, calibrationValue); // uncomment this if you want to fetch the calibration value from eeprom
 
   unsigned long stabilizingtime = 2000; // preciscion right after power-up can be improved by adding a few seconds of stabilizing time
