@@ -102,7 +102,7 @@ void loop() {
     // compute gas level
     computeGasLevel();
 
-    Serial.print("Comuted Gas Weight: ");
+    Serial.print("Computed Gas Weight: ");
     Serial.println(computed_gas_weight);
     
     // show weight on LCD
