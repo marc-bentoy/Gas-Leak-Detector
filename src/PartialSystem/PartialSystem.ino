@@ -109,10 +109,7 @@ void loop() {
     lcd.clear();
     lcd.setCursor(0,0);
     lcd.print("GAS LEVEL: "); 
-    int gasLevelToPrint = 0;
-    if (gas_level == 1) gasLevelToPrint = 0; 
-    if (gas_level == 2) gasLevelToPrint = 20; 
-    if (gas_level == 3) gasLevelToPrint = 50; 
+    int gasLevelToPrint = computed_gas_weight * 100;
     lcd.setCursor(12,0);
     lcd.print(gasLevelToPrint); 
     lcd.setCursor(15,0);
