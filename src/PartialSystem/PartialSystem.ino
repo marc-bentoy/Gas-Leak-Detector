@@ -33,27 +33,8 @@ int gas_atmosphere = 0;
 // LCD OBJECT
 LiquidCrystal_I2C lcd(0x27, 16, 2);
 
-byte smile[8] = {
-    0b00000,
-    0b00000,
-    0b01010,
-    0b00000,
-    0b10001,
-    0b01110,
-    0b00000,
-    0b00000
-};
-
-byte heart[8] = {
-    0b00000,
-    0b01010,
-    0b11111,
-    0b11111,
-    0b11111,
-    0b01110,
-    0b00100,
-    0b00000
-};
+byte smile[] = { 0x00, 0x00, 0x0A, 0x00, 0x11, 0x0E, 0x00, 0x00 };
+byte heart[] = { 0x00, 0x0A, 0x1F, 0x1F, 0x1F, 0x0E, 0x04, 0x00 };
 
 // LOAD CELL VARIABLES
 HX711_ADC LoadCell(LOAD_CELL_DOUT_PIN, LOAD_CELL_SCK_PIN);
